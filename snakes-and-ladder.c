@@ -13,6 +13,43 @@
 
 
 #define HRED "\e[0;91m"
+
+int check(int num, int d) //? check is the position is of ladder or snake
+{
+    if (num > 100)
+    {
+        return num - d;
+    }
+    switch (num)
+    {
+    case 99:
+        return 2;
+        break;
+    case 85:
+        return 55;
+        break;
+    case 68:
+        return 32;
+        break;
+    case 80:
+        return 98;
+        break;
+    case 45:
+        return 63;
+        break;
+    case 71:
+        return 90;
+        break;
+    case 8:
+        return 30;
+        break;
+    case 21:
+        return 41;
+        break;
+    default:
+        return num;
+    }
+}
 void printnum_ladder(int num)
 {
     printf(MAG " %3d " WHT, num);
@@ -41,6 +78,7 @@ void print_user_equal(int num)
 }
 void display(int arr[][10],int no1,int no2)
 {
+    int flag=1;
     for (int i = 9; i >= 0; i--)
     {
 
@@ -51,6 +89,7 @@ void display(int arr[][10],int no1,int no2)
                 int x = arr[i][j];
                 if(no1==no2 && x==no1 )
                 {
+                   flag=0;
                    print_user_equal(no1);
                 }
                 else if(x==no1)
@@ -80,6 +119,7 @@ void display(int arr[][10],int no1,int no2)
                int x = arr[i][j];
                if(no1==no2 && x==no1 )
                {
+                   flag=0;
                    print_user_equal(no1);
                }
                 else  if(x==no1)
@@ -114,7 +154,7 @@ int main()
     }
     printf("\n\n");
     int prev_no_p1=2;
-    int prev_no_p2=3;
+    int prev_no_p2=1;
     display(arr,prev_no_p1,prev_no_p2);
     printf("\n");
 
