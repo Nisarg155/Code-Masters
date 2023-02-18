@@ -1,18 +1,60 @@
 #include <stdio.h>
 // Regular text
 #define RED "\e[0;31m"
+#define GRN "\e[0;32m"
+#define YEL "\e[0;33m"
+#define BLU "\e[0;34m"
 #define MAG "\e[0;35m"
+#define CYN "\e[0;36m"
 #define WHT "\e[0;37m"
 
+// Regular bold text
 #define BRED "\e[1;31m"
-
+#define BGRN "\e[1;32m"
+#define BYEL "\e[1;33m"
+#define BBLU "\e[1;34m"
+#define BMAG "\e[1;35m"
+#define BCYN "\e[1;36m"
+#define BWHT "\e[1;37m"
 
 #define YELB "\e[43m"
 #define BLUB "\e[44m"
 #define GRNB "\e[42m"
 
-
 #define HRED "\e[0;91m"
+int check(int num)
+{
+    switch (num)
+    {
+    case 99:
+        return 2;
+        break;
+    case 85:
+        return 55;
+        break;
+    case 68:
+        return 32;
+        break;
+    case 80:
+        return 98;
+        break;
+    case 45:
+        return 63;
+        break;
+    case 71:
+        return 90;
+        break;
+    case 8:
+        return 30;
+        break;
+    case 21:
+        return 41;
+        break;
+    default:
+        return num;
+        
+    }
+}
 void printnum_ladder(int num)
 {
     printf(MAG " %3d " WHT, num);
@@ -39,8 +81,9 @@ void print_user_equal(int num)
     printf(" ");
     printf(GRNB "%3d " WHT, num);
 }
-void display(int arr[][10],int no1,int no2)
+void display(int arr[][10], int no1, int no2)
 {
+    int flag = 1;
     for (int i = 9; i >= 0; i--)
     {
 
@@ -49,15 +92,16 @@ void display(int arr[][10],int no1,int no2)
             for (int j = 9; j >= 0; j--)
             {
                 int x = arr[i][j];
-                if(no1==no2 && x==no1 )
+                if (no1 == no2 && x == no1)
                 {
-                   print_user_equal(no1);
+                    flag = 0;
+                    print_user_equal(no1);
                 }
-                else if(x==no1)
+                else if (x == no1)
                 {
                     print_user_n1(no1);
                 }
-                else if(x==no2)
+                else if (x == no2)
                 {
                     print_user_n2(no2);
                 }
@@ -77,16 +121,17 @@ void display(int arr[][10],int no1,int no2)
         {
             for (int j = 0; j < 10; j++)
             {
-               int x = arr[i][j];
-               if(no1==no2 && x==no1 )
-               {
-                   print_user_equal(no1);
-               }
-                else  if(x==no1)
+                int x = arr[i][j];
+                if (no1 == no2 && x == no1)
+                {
+                    flag = 0;
+                    print_user_equal(no1);
+                }
+                else if (x == no1)
                 {
                     print_user_n1(no1);
                 }
-                else if(x==no2)
+                else if (x == no2)
                 {
                     print_user_n2(no2);
                 }
@@ -113,9 +158,9 @@ int main()
         *(*arr + i) = k++;
     }
     printf("\n\n");
-    int prev_no_p1=2;
-    int prev_no_p2=3;
-    display(arr,prev_no_p1,prev_no_p2);
+    int prev_no_p1 = 1;
+    int prev_no_p2 = 1;
+    display(arr, prev_no_p1, prev_no_p2);
     printf("\n");
 
     return 0;
