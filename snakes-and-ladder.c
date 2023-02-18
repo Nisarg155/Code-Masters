@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 void display(int arr[][10])
 {
     for (int i = 9; i >= 0; i--)
@@ -9,7 +10,7 @@ void display(int arr[][10])
             for (int j = 9; j >= 0; j--)
             {
                 int x = arr[i][j];
-               printf("  %3d  ", x);
+                printf(" %3d ", x);
             }
             printf("\n\n");
         }
@@ -18,7 +19,7 @@ void display(int arr[][10])
             for (int j = 0; j < 10; j++)
             {
                 int x = arr[i][j];
-                printf("  %3d  ", x);
+                printf(" %3d ", x);
             }
             printf("\n\n");
         }
@@ -35,6 +36,5 @@ int main()
     printf("\n\n");
     display(arr);
     printf("\n");
-
-    return 0;
+return 0;
 }
