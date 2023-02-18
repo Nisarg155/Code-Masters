@@ -197,7 +197,7 @@ int main()
         }
         if (prev_no_p1 == 100)
         {
-            printf(BGRN"\n\t\tCONGRATULATIONS!\n\t\t  user 1 wins"WHT);
+            printf(BGRN"\n\t\tCONGRATULATIONS!\n\t\t  player 1 wins"WHT);
             exit(0);
         }
         if (!flag) //? player 2 code
@@ -216,7 +216,7 @@ int main()
         
         if (prev_no_p2 == 100)
         {
-            printf(BGRN"\n\n\t\tCONGRATULATIONS!\n\t\t  user 2 wins"WHT);
+            printf(BGRN"\n\n\t\tCONGRATULATIONS!\n\t\t  player 2 wins"WHT);
             exit(0);
         }
     }
